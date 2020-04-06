@@ -1,0 +1,17 @@
+p {
+	color: red;
+	text-decoration: underline;
+	font: Arial;
+	font-size: 42px;
+}
+
+div.menu{
+	font: bold 36px Arial, Helvetica, sans-serif;
+	background-color: red;
+}
+
+p.dif
+{
+	font: small-caps;
+	font-size: medium;
+}

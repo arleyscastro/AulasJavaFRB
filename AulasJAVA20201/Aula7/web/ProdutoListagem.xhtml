@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Listagem de produtos</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>LISTAGEM DOS PRODUTOS CADASTRADOS</h1>
+            <h:commandButton value="VOLTAR" style="width: 95%" action="voltaParaIndex"/>
+            <h:commandButton value="CRIAR NOVO PRODUTO" style="width: 95%" action="#{produtoController.prepararInclusao()}" />
+            <br/>
+            
+            <h:dataTable style="width: 95%"
+                         var="umProd"
+                         value="#{produtoController.produtos}"
+                         border="1">
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="CÓDIGO"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{umProd.idproduto}"/>                    
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="NOME"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{umProd.nome}"/>                    
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="PREÇO"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{umProd.preco}">
+                        
+                    </h:outputLabel>                   
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="VALIDADE"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{umProd.validade}">
+                        <f:convertDateTime pattern="dd/MM/yyy" />
+                    </h:outputLabel>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="AÇÃO"/>
+                    </f:facet>
+                    <h:commandLink value="Detalhe" />
+                    <h:outputLabel value="|"/>
+                    <h:commandLink value="Editar" />
+                    <h:outputLabel value="|"/>
+                    <h:commandLink value="Deletar" />
+                                      
+                </h:column>
+                
+            </h:dataTable>
+            
+        </h:form>
+    </h:body>
+</html>
+

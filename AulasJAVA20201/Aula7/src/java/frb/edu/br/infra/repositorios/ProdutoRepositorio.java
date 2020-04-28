@@ -4,7 +4,9 @@ import frb.edu.br.dominio.contratos.IProduto;
 import frb.edu.br.dominio.entidades.ProdutoDto;
 import frb.edu.br.infra.data.DaoUtil;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -84,12 +86,57 @@ public class ProdutoRepositorio extends DaoUtil implements IProduto{
 
     @Override
     public ProdutoDto getRegistroPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ProdutoDto prod = new ProdutoDto();
+        String sql = "SELECT idProduto, nome, preco, "; 
+        sql += "validade, descricao FROM produto ";
+        sql += " WHERE idProduto = ?";
+        try {
+            PreparedStatement ps = super.getPreparedStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                prod = new ProdutoDto(rs.getInt("idProduto"),
+                                      rs.getString("nome"), 
+                                      rs.getFloat("preco"), 
+                                      rs.getDate("validade"), 
+                                      rs.getString("descricao"));
+            }
+            rs.close();
+            ps.close();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProdutoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
+        return prod;
     }
 
     @Override
     public List<ProdutoDto> getListaTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<ProdutoDto> prods = new LinkedList<ProdutoDto>();
+        String sql = "SELECT idProduto, nome, preco, "; 
+        sql += "validade, descricao FROM produto ";
+        try {
+            PreparedStatement ps = super.getPreparedStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                
+                prods.add( new ProdutoDto(rs.getInt("idProduto"),
+                                      rs.getString("nome"), 
+                                      rs.getFloat("preco"), 
+                                      rs.getDate("validade"), 
+                                      rs.getString("descricao"))  );
+            }
+            rs.close();
+            ps.close();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProdutoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
+        return prods;
     }
     
 }

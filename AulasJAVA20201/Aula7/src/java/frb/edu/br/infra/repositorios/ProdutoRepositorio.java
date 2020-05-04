@@ -43,7 +43,7 @@ public class ProdutoRepositorio extends DaoUtil implements IProduto{
 
     @Override
     public boolean alterar(ProdutoDto produto) {
-        String sql = "UPDATE produto nome=?, preco=?, validade=?, descricao=?" +
+        String sql = "UPDATE produto SET nome=?, preco=?, validade=?, descricao=?" +
                      " WHERE idProduto=?";
         PreparedStatement ps;
         int ret=-1;

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Detalhe de produto</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>DETALHE DE UM PRODUTO</h1>
+            
+            <table>
+                <tbody>
+                    <tr>
+                        <td> <h:outputLabel value="CÓDIGO:"/> </td>
+                        <td> <h:outputLabel value="#{produtoController.produto.idproduto}"/> </td>
+                    </tr>
+                    <tr>
+                        <td> <h:outputLabel value="NOME"/> </td>
+                        <td> <h:outputLabel value="#{produtoController.produto.nome}"/>  </td>
+                    </tr>
+                    <tr>
+                        <td> <h:outputLabel value="PREÇO"/> </td>
+                        <td> <h:outputLabel value="#{produtoController.produto.preco}" /> </td>
+                    </tr>
+                    <tr>
+                        <td> <h:outputLabel value="VALIDADE"/> </td>
+                        <td> <h:outputLabel value="#{produtoController.produto.validade}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputLabel> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <h:outputLabel value="DESCRIÇÃO" /> </td>
+                        <td> <h:outputLabel value="#{produtoController.produto.descricao}" /> </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <h:commandButton value="Voltar" style="width: 48%" action="voltaParaListagem" />
+            <h:commandButton value="Editar" style="width: 48%" action="vaiParaEditar"/>                             
+            
+        </h:form>
+    </h:body>
+</html>
+

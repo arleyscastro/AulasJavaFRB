@@ -42,5 +42,17 @@ public class ProdutoController {
         return "voltaParaListagem";
     }
     
+    public String finalizaEdicao(){
+        produtoRepositorio.alterar(produto);
+        produtos = null;
+        return "voltaParaListagem";
+    }
+    
+    public String finalizaDelecao(){
+        produtoRepositorio.deletar( produto.getIdproduto() );
+        produtos = null;
+        return "refresh";
+    }
+    
     
 }

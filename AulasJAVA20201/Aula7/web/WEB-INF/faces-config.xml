@@ -9,6 +9,10 @@
             <from-outcome>vaiParaListagem</from-outcome>
             <to-view-id>/ProdutoListagem.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaVendedor</from-outcome>
+            <to-view-id>/VendedorListagem.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/ProdutoListagem.xhtml</from-view-id>
@@ -19,6 +23,18 @@
         <navigation-case>
             <from-outcome>vaiParaIncluir</from-outcome>
             <to-view-id>/ProdutoIncluir.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaEditar</from-outcome>
+            <to-view-id>/ProdutoEditar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaDetalhe</from-outcome>
+            <to-view-id>/ProdutoDetalhe.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>refresh</from-outcome>
+            <to-view-id>/ProdutoListagem.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <managed-bean>
@@ -31,6 +47,31 @@
         <navigation-case>
             <from-outcome>voltaParaListagem</from-outcome>
             <to-view-id>/ProdutoListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/ProdutoEditar.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/ProdutoListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/ProdutoDetalhe.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/ProdutoListagem.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaEditar</from-outcome>
+            <to-view-id>/ProdutoEditar.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/VendedorListagem.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaIndex</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

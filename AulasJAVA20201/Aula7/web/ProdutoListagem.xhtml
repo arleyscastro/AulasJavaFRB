@@ -58,11 +58,22 @@
                     <f:facet name="header">
                         <h:outputLabel value="AÇÃO"/>
                     </f:facet>
-                    <h:commandLink value="Detalhe" />
+                    
+                    <h:commandLink value="Detalhe" action="vaiParaDetalhe">
+                        <f:setPropertyActionListener target="#{produtoController.produto}" value="#{umProd}" />
+                    </h:commandLink>
+                    
                     <h:outputLabel value="|"/>
-                    <h:commandLink value="Editar" />
+                    <h:commandLink value="Editar" action="vaiParaEditar">
+                        <f:setPropertyActionListener target="#{produtoController.produto}" value="#{umProd}" />
+                    </h:commandLink>
+                    
+                    
                     <h:outputLabel value="|"/>
-                    <h:commandLink value="Deletar" />
+                    
+                    <h:commandLink value="Deletar" action="#{produtoController.finalizaDelecao()}">
+                        <f:setPropertyActionListener target="#{produtoController.produto}" value="#{umProd}"/>
+                    </h:commandLink>
                                       
                 </h:column>
                 

@@ -1,5 +1,6 @@
 package frb.edu.br.controladores;
 
+import frb.edu.br.dominio.contratos.IProduto;
 import frb.edu.br.dominio.entidades.ProdutoDto;
 import frb.edu.br.infra.repositorios.ProdutoRepositorio;
 import java.util.List;
@@ -9,7 +10,7 @@ public class ProdutoController {
     private ProdutoDto produto;
     private List<ProdutoDto> produtos = null;
     
-    private ProdutoRepositorio produtoRepositorio = new ProdutoRepositorio();
+    private IProduto produtoRepositorio = new ProdutoRepositorio();
 
 
     public ProdutoController() {

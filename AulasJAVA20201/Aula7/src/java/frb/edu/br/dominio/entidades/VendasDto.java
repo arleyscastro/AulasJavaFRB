@@ -1,9 +1,5 @@
 package frb.edu.br.dominio.entidades;
 
-
-import frb.edu.br.dominio.entidades.ProdutoDto;
-import frb.edu.br.dominio.entidades.VendedorDto;
-
 public class VendasDto {
     private int idvendas;
     private ProdutoDto produto;

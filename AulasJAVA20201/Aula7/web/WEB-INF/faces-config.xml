@@ -13,6 +13,10 @@
             <from-outcome>vaiParaVendedor</from-outcome>
             <to-view-id>/VendedorListagem.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaVendas</from-outcome>
+            <to-view-id>/VendasListagem.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/ProdutoListagem.xhtml</from-view-id>
@@ -72,6 +76,71 @@
         <navigation-case>
             <from-outcome>voltaParaIndex</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaIncluir</from-outcome>
+            <to-view-id>/VendedorIncluir.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaEditar</from-outcome>
+            <to-view-id>/VendedorEditar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaDetalhe</from-outcome>
+            <to-view-id>/VendedorDetalhe.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>vendedorController</managed-bean-name>
+        <managed-bean-class>frb.edu.br.controladores.VendedorController</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/VendedorIncluir.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/VendedorListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/VendedorEditar.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/VendedorListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/VendedorDetalhe.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/VendedorListagem.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaEditar</from-outcome>
+            <to-view-id>/VendedorEditar.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>vendasController</managed-bean-name>
+        <managed-bean-class>frb.edu.br.controladores.VendasController</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/VendasListagem.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaIndex</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaIncluir</from-outcome>
+            <to-view-id>/VendasIncluir.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/VendasIncluir.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/VendasListagem.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

@@ -3,13 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
+        <link rel="stylesheet" type="text/css" href="MeuCss.css" />
         <title>Sistema Vendas</title>
     </h:head>
     <h:body>
         <h:form>
             <h1>INDICE</h1>
-            <h:commandLink value="Listagem de produtos" action="vaiParaListagem"/>
-            <h:commandLink value="Listagem de Vendedores" action="vaiParaVendedor" />
+            <ul id="menu">
+                <li><h:commandLink value="Listagem produtos" action="vaiParaListagem"/></li>
+                <li><h:commandLink value="Listagem Vendedores" action="vaiParaVendedor" /></li>
+                <li><h:commandLink value="Listagem Vendas" action="vaiParaVendas" /></li>
+            </ul>            
         </h:form>
     </h:body>
 </html>

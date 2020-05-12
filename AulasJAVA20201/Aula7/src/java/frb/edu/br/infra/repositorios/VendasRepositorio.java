@@ -1,7 +1,9 @@
 package frb.edu.br.infra.repositorios;
 
 import frb.edu.br.dominio.contratos.IVendas;
+import frb.edu.br.dominio.entidades.ProdutoDto;
 import frb.edu.br.dominio.entidades.VendasDto;
+import frb.edu.br.dominio.entidades.VendedorDto;
 import frb.edu.br.infra.data.DaoUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -103,7 +105,8 @@ public class VendasRepositorio extends DaoUtil implements IVendas{
                         rs.getDouble("vlVenda"), 
                         rs.getInt("quantidade"));
             }
-            
+            rs.close();
+            ps.close();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(VendasRepositorio.class.getName()).log(Level.SEVERE, null, e);
         } catch (SQLException ex) {
@@ -125,17 +128,20 @@ public class VendasRepositorio extends DaoUtil implements IVendas{
             PreparedStatement ps = getPreparedStatement(sql);
             ResultSet rs = ps.executeQuery();
             
-            while ( rs.next() ) {                
+            while ( rs.next() ) {
+                ProdutoDto produto = prod.getRegistroPorId(rs.getInt("idProduto"));
+                VendedorDto vende = vend.getRegistroPorId(rs.getInt("idVendedor"));
                 venda.add( new VendasDto(
                         rs.getInt("idVendas"), 
-                        prod.getRegistroPorId(rs.getInt("idProduto")), 
-                        vend.getRegistroPorId(rs.getInt("idVendedor")), 
+                        produto, 
+                        vende, 
                         rs.getDouble("vlVenda"), 
                         rs.getInt("quantidade")
                         )
                 );
             }
-            
+            rs.close();
+            ps.close();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(VendasRepositorio.class.getName()).log(Level.SEVERE, null, e);
         } catch (SQLException ex) {

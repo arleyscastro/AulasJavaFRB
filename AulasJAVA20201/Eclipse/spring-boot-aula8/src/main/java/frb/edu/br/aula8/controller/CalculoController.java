@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import frb.edu.br.aula8.caculadora.ConverteNumero;
+import frb.edu.br.aula8.caculadora.Pessoa;
 import frb.edu.br.aula8.caculadora.SimplesCalculadora;
 
 @RestController
@@ -37,6 +38,20 @@ public class CalculoController {
 	@GetMapping("/outrasoma/{nr1}/{nr2}")
 	public Double outrasoma(@PathVariable("nr1") Double nr1, @PathVariable("nr2") Double nr2) {
 		return calcula.soma(nr1, nr2);
+	}
+	
+	@GetMapping("/teste")
+	public String teste() {
+		return "Teste";
+	}
+	
+	@GetMapping("/pessoa")
+	public Pessoa pessoa() {
+		Pessoa pess = new Pessoa(432, "Maria", "F");
+		
+		return pess;
+		
+		
 	}
 
 }
